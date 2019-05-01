@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #ResizeDiv {
+            position: relative;
+        }
+
+        .bottom {
+            width: 100%;
+            background: #ccc;
+            text-align: center;
+            color: #fff;
+            padding: 5px 0;
+        }
+
+        .head {
+            width: 100%;
+            background: #4fd843;
+        }
+
+        .headCent,
+        .content {
+            width: 80%;
+            padding: 10px 0;
+            margin: 0 auto;
+            display: flex;
+        }
+
+        .headLeft {
+            width: 200px;
+            font-size: 1.7em;
+            color: #fff;
+            float: left;
+        }
+
+        .headRight {
+            float: right;
+            padding: 10px 0;
+            margin-left: 300px;
+        }
+
+        .headRight li {
+            list-style: none;
+            float: left;
+            margin-left: 35px;
+        }
+
+        .headRight li a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .content {
+            margin-bottom: 10px;
+        }
+
+        .item {
+            width: 397.5px;
+            height: 200px;
+            float: left;
+            margin-top: 10px;
+            box-shadow: 0px 0px 5px #ccc;
+            text-align: center;
+            position: relative;
+            -webkit-perspective: 900;
+            -moz-perspective: 900;
+            perspective: 900;
+            -webkit-perspective-origin: 50% 50%;
+            -moz-perspective-origin: 50% 50%;
+            perspective-origin: 50% 50%;
+        }
+
+        .item:nth-child(odd) {
+            margin-right: 5px;
+        }
+
+        .content>.list>.item>.front {
+            font-size: 2rem;
+            padding-top: 69px;
+            margin: 0;
+            -webkit-transform: rotateY(0);
+            -moz-transform: rotateY(0);
+            transform: rotateY(0);
+            z-index: 2;
+        }
+
+        .content>.list>.item>.back {
+            z-index: 1;
+            -webkit-transform: rotateY(-180deg);
+            -moz-transform: rotateY(-180deg);
+            transform: rotateY(-180deg);
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .content>.list>.item>.back,
+        .content>.list>.item>.front {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            color: #2e9af4;
+            -webkit-transition: -webkit-transform .5s;
+            -moz-transition: transform .5s, -moz-transform .5s;
+            -o-transition: transform .5s, -o-transform .5s;
+            transition: transform .5s;
+            transition: transform .5s, -webkit-transform .5s, -moz-transform .5s, -o-transform .5s;
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -webkit-transform-style: preserve-3d;
+            -moz-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+        }
+
+        .content>.list>.item:hover>.front {
+            -webkit-transform: rotateY(180deg);
+            -moz-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+            z-index: 1
+        }
+
+        .content>.list>.item:hover>.back {
+            -webkit-transform: rotateY(0);
+            -moz-transform: rotateY(0);
+            transform: rotateY(0);
+            z-index: 2
+        }
+
+        .content>.list>.item>.back img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="ResizeDiv">
+        <header class="head">
+
+            <div class="headCent">
+                <div class="headLeft">
+                    <span>学英语</span>
+                </div>
+                <div class="headRight">
+                    <ul class="rightNav">
+                        <li><a href="#">首页</a></li>
+                        <li><a href="#">商城</a></li>
+                        <li><a href="#">加入我们</a></li>
+                        <li><a href="#">下载</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </header>
+        <div class="content">
+            <div class="list">
+                <div class="item">
+                    <p class="front">clearlove</p>
+                    <a href="#" class="back">
+                        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1554194002615&di=27c035ca70d478593b87c25374964d2f&imgtype=0&src=http%3A%2F%2Fhiphotos.baidu.com%2Ffeed%2Fpic%2Fitem%2Fd6ca7bcb0a46f21f1a99fe11fd246b600d33aec7.jpg"
+                            alt="明凯">
+                    </a>
+                </div>
+                <div class="item">
+                    <p class="front">clearlove</p>
+                    <a href="#" class="back">
+                        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1554194002615&di=27c035ca70d478593b87c25374964d2f&imgtype=0&src=http%3A%2F%2Fhiphotos.baidu.com%2Ffeed%2Fpic%2Fitem%2Fd6ca7bcb0a46f21f1a99fe11fd246b600d33aec7.jpg"
+                            alt="明凯">
+                    </a>
+                </div>
+                <div class="item">
+                    <p class="front">clearlove</p>
+                    <a href="#" class="back">
+                        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1554194002615&di=27c035ca70d478593b87c25374964d2f&imgtype=0&src=http%3A%2F%2Fhiphotos.baidu.com%2Ffeed%2Fpic%2Fitem%2Fd6ca7bcb0a46f21f1a99fe11fd246b600d33aec7.jpg"
+                            alt="明凯">
+                    </a>
+                </div>
+                <div class="item">
+                    <p class="front">clearlove</p>
+                    <a href="#" class="back">
+                        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1554194002615&di=27c035ca70d478593b87c25374964d2f&imgtype=0&src=http%3A%2F%2Fhiphotos.baidu.com%2Ffeed%2Fpic%2Fitem%2Fd6ca7bcb0a46f21f1a99fe11fd246b600d33aec7.jpg"
+                            alt="明凯">
+                    </a>
+                </div>
+                <div class="item">
+                    <p class="front">clearlove</p>
+                    <a href="#" class="back">
+                        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1554194002615&di=27c035ca70d478593b87c25374964d2f&imgtype=0&src=http%3A%2F%2Fhiphotos.baidu.com%2Ffeed%2Fpic%2Fitem%2Fd6ca7bcb0a46f21f1a99fe11fd246b600d33aec7.jpg"
+                            alt="明凯">
+                    </a>
+                </div>
+
+                <div class="item">
+                    <p class="front">clearlove</p>
+                    <a href="#" class="back">
+                        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1554194002615&di=27c035ca70d478593b87c25374964d2f&imgtype=0&src=http%3A%2F%2Fhiphotos.baidu.com%2Ffeed%2Fpic%2Fitem%2Fd6ca7bcb0a46f21f1a99fe11fd246b600d33aec7.jpg"
+                            alt="明凯">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="bottom">
+            <p>姓名：路航&nbsp;&nbsp;学号：？？？</p>
+        </div>
+    </div>
+    <script>
+        window.onload = function () {
+            function Resize() {
+                iWBody = 1000,
+                    ResizeDiv = document.getElementById('ResizeDiv');
+                ResizeDiv.style.width = iWBody + 'px';
+                }
+                document.getElementsByClassName("")
+            Resize();
+            //当屏幕大小变动事件
+            window.onresize = function () {
+                Resize();
+            }
+        }
+    </script>
+</body>
+
+</html>

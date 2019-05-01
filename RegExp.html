@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RegExp类型</title>
+</head>
+
+<body>
+    <div id="content"></div>
+    <script>
+        window.onload = function () {
+            // 学习时间 2019.3.30 9:33
+            // RegExp 构造函数属性   P108
+            // input  -- $_  最近一次要匹配的字符串
+            // lastMatch -- $& 最近一次的匹配项
+            // lastParen -- $+ 最近一次的捕获组
+            // leftContext -- $` input 字符串中lastMatch之前的文本
+            // rightContext -- $' input 字符串中lastMatch之后的文本
+            // multiline -- $* 布尔值，表示是否所有表达式都是用多行模式
+
+            var text = "this has been a short summer";
+            var pattern = /(.)hort/g;
+
+            /* 
+             * 注意： Opera 不支持 input，lastMatch，lastParen和 multiline属性
+             * Internet Explorer 不支持 multiline 属性
+             */
+            if (pattern.test(text)) {
+                console.log(RegExp.input); // this has been a short summer
+                console.log(RegExp.lastMatch); // short
+                console.log(RegExp.lastParen); // s
+                console.log(RegExp.leftContext); // this has been a 
+                console.log(RegExp.rightContext); // summer
+                console.log(RegExp.multiline); // undefined
+            }
+
+            /*
+             *如前所述，例子使用的长属性名都可以用相应的段属性名来代替
+             *只不过，由于这些短属性名大都不是有效的ECMAScript 标识符
+             *因此必须通过方括号语法来访为他们，如下所示。
+             */
+            var text1 = "this has been a short summer";
+            var pattern1 = /(.)hort/g;
+
+            if (pattern1.test(text1)) {
+                console.log(RegExp["$`"]); // this has been a 等效于 RegExp.leftContext
+            }
+            //除了上面介绍的几个属性之外，还有多达9个用于存储捕获组的构造函数属性。
+            //RegExp.$1~RegExp.$9,分别用于存储第一到第九个匹配的捕获组
+            select();
+            function select() {
+                pattern = /(..)or(.)/g;
+                if (pattern.test(text)) {
+                    console.log(RegExp.$1)      //sh
+                    console.log(RegExp.$2)      //t
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
