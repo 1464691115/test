@@ -149,4 +149,7 @@ window.onload = function () {
     }
     var friend = new shenchuanping("沈传萍",29,"商贩");
     friend.sayName();
+
+   
+
 }
